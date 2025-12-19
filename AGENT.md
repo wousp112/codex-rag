@@ -1,0 +1,8 @@
+# AGENT 边界与操作手册
+- 工作边界：仅在当前目录及子目录读写；禁止改动 raw/ 内已有原始文件；不得上传密钥。
+- 命令白名单：rag init/parse/chunk/embed/build-bm25/query/audit/verify-citations/meta set/export-used-sources。
+- 自然语言→命令映射：初始化→rag init；解析→rag parse；分块→rag chunk；嵌入→rag embed；检索→rag query；审计→rag audit；引文核查→rag verify-citations。
+- Evidence Pack 仅消费 citable=true 数据；出现 citable=false 必须报错终止。
+- 失败兜底：外部 API 缺失或调用失败时给出清晰报错与配置指引，不静默降级。
+- 输出版本化：所有 md 输出按 vNNN 递增，不覆盖旧版；记录 meta/version_log.jsonl。
+- Instruction Assimilation：如 raw/instruction/** 存在，需生成 meta/instruction_brief.md 与 meta/style_brief.md，并在索引中标记 citable=false，禁止进入 Evidence Pack。

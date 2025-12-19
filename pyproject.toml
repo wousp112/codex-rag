@@ -1,0 +1,16 @@
+﻿[project]
+name = "rag"
+version = "0.1.0"
+description = "Codex + RAG 论文写作系统 CLI"
+authors = [{ name = "Codex" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+rag = "rag.cli:main"
+
+[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
