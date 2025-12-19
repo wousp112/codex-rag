@@ -8,6 +8,9 @@ rag init
 如果 `rag` 未在 PATH，可用 `python -m rag init`，或把 `%APPDATA%\\Python\\Python313\\Scripts` 加入 PATH 后重开终端。
 
 ## 放置数据
+- `rag init` 已自动创建：
+  - `raw/evidence/`
+  - `raw/instruction/guidance/`, `raw/instruction/feedback/`, `raw/instruction/slides/`, `raw/instruction/exemplars/`
 - 可引用文献：放到 `raw/evidence/`
 - 指令/风格文件：放到 `raw/instruction/...`（会生成 instruction/style brief，citable=false）
 

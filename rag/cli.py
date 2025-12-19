@@ -89,9 +89,17 @@ def _print_filters_and_summary(records: List[dict]):
 @handle_exception
 def cmd_init(args):
     root = project_root()
-    paths = ['raw', 'parsed', 'chunks', 'index', 'meta', 'outputs']
-    for p in paths:
+    # 基础目录
+    base_paths = ['raw', 'parsed', 'chunks', 'index', 'meta', 'outputs']
+    for p in base_paths:
         ensure_dir(root / p)
+    # raw 子目录：evidence + instruction 各类
+    raw = root / 'raw'
+    ensure_dir(raw / 'evidence')
+    ensure_dir(raw / 'instruction' / 'guidance')
+    ensure_dir(raw / 'instruction' / 'feedback')
+    ensure_dir(raw / 'instruction' / 'slides')
+    ensure_dir(raw / 'instruction' / 'exemplars')
 
     cfg_path = root / 'config.yaml'
     if cfg_path.exists():
