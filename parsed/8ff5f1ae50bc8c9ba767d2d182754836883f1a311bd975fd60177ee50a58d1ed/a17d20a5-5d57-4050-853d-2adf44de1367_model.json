@@ -1,0 +1,1664 @@
+[
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.754,
+                0.041,
+                0.916,
+                0.061
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.064,
+                0.15,
+                0.586,
+                0.176
+            ],
+            "angle": 0,
+            "content": "Social determinants of health inequalities"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.064,
+                0.187,
+                0.156,
+                0.199
+            ],
+            "angle": 0,
+            "content": "Michael Marmot"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.213,
+                0.803,
+                0.325
+            ],
+            "angle": 0,
+            "content": "The gross inequalities in health that we see within and between countries present a challenge to the world. That there should be a spread of life expectancy of 48 years among countries and 20 years or more within countries is not inevitable. A burgeoning volume of research identifies social factors at the root of much of these inequalities in health. Social determinants are relevant to communicable and non-communicable disease alike. Health status, therefore, should be of concern to policy makers in every sector, not solely those involved in health policy. As a response to this global challenge, WHO is launching a Commission on Social Determinants of Health, which will review the evidence, raise societal debate, and recommend policies with the goal of improving health of the world's most vulnerable people. A major thrust of the Commission is turning public-health knowledge into political action."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.338,
+                0.426,
+                0.475
+            ],
+            "angle": 0,
+            "content": "There are gross inequalities in health between countries. Life expectancy at birth, to take one measure, ranges from 34 years in Sierra Leone to 81-9 years in Japan. Within countries, too, there are large inequalities—a 20-year gap in life expectancy between the most and least advantaged populations in the USA, for example. One welcome response to these health inequalities is to put more effort into the control of major diseases that kill and to improve health systems."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.476,
+                0.426,
+                0.571
+            ],
+            "angle": 0,
+            "content": "A second belated response is to deal with poverty. This issue is the thrust of the Millennium Development Goals.[5,6] These goals challenge the world community to tackle poverty in the world's poorest countries. Included in these goals is reduction of child mortality, the health outcome most sensitive to the effects of absolute material deprivation."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.572,
+                0.426,
+                0.669
+            ],
+            "angle": 0,
+            "content": "To reduce inequalities in health across the world there is need for a third major thrust that is complementary to development of health systems and relief of poverty: to take action on the social determinants of health. Such action will include relief of poverty but it will have the broader aim of improving the circumstances in which people live and work. It will, therefore, address not only"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.077,
+                0.688,
+                0.412,
+                0.701
+            ],
+            "angle": 0,
+            "content": "Panel 1: The Commission on Social Determinants of Health"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.076,
+                0.709,
+                0.411,
+                0.763
+            ],
+            "angle": 0,
+            "content": "The Commission will not only review existing knowledge but also raise societal debate and promote uptake of policies that will reduce inequalities in health within and between countries."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.764,
+                0.403,
+                0.929
+            ],
+            "angle": 0,
+            "content": "The Commission's aim is, within 3 years, to set solid foundations for its vision: the societal relations and factors that influence health and health systems will be visible, understood, and recognised as important. On this basis, the opportunities for policy and action and the costs of not acting on these social dimensions will be widely known and debated. Success will be achieved if institutions working in health at local, national, and global level will be using this knowledge to set and implement relevant public policy affecting health. The Commission will contribute to a long-term process of incorporating social determinants of health into planning, policy and technical work at WHO."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.338,
+                0.803,
+                0.433
+            ],
+            "angle": 0,
+            "content": "the major infectious diseases linked with poverty of material conditions but also non-communicable diseases—both physical and mental—and violent deaths that form the major burden of disease and death in every region of the world outside Africa and add substantially to the burden of communicable disease in sub-Saharan Africa."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.434,
+                0.803,
+                0.558
+            ],
+            "angle": 0,
+            "content": "To understand the social determinants of health, how they operate, and how they can be changed to improve health and reduce health inequalities, WHO is setting up an independent Commission on Social Determinants of Health, with the mission to link knowledge with action (panel 1). Public policy—both national and global—should change to take into account the evidence on social determinants of health and interventions and policies that will address them."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.558,
+                0.804,
+                0.71
+            ],
+            "angle": 0,
+            "content": "This introduction to the Commission's task lays out the problems of inequalities in health that the Commission will address and the approach that it will take. This report will argue that health status should be of concern to all policy makers, not merely those within the health sector. If health of a population suffers it is an indicator that the set of social arrangements needs to change. Simply, the Commission will seek to have public policy based on a vision of the world where people matter and social justice is paramount."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.439,
+                0.722,
+                0.76,
+                0.751
+            ],
+            "angle": 0,
+            "content": "Inequalities in health between and within countries: poverty and inequality"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.751,
+                0.803,
+                0.833
+            ],
+            "angle": 0,
+            "content": "A catastrophe on the scale of the Indian Ocean tsunami rightly focuses attention on the susceptibility of poor and vulnerable populations to natural disasters. It is no less important to keep on the agenda the more enduring problem of inequalities in health among countries."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.44,
+                0.847,
+                0.5,
+                0.859
+            ],
+            "angle": 0,
+            "content": "Children"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.86,
+                0.803,
+                0.944
+            ],
+            "angle": 0,
+            "content": "Under-5 mortality varies from 316 per 1000 livebirths in Sierra Leone to 3 per 1000 livebirths in Iceland, 4 per 1000 livebirths in Finland, and 5 per 1000 livebirths in Japan. In 16 countries (12 in Africa), child mortality rose in the 1990s, by \\(43\\%\\) in Zimbabwe, \\(52\\%\\) in Botswana, and \\(75\\%\\) in Iraq."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.812,
+                0.189,
+                0.943,
+                0.199
+            ],
+            "angle": 0,
+            "content": "Lancet 2005;365:1099-104"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.204,
+                0.877,
+                0.213
+            ],
+            "angle": 0,
+            "content": "See Comment"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.218,
+                0.953,
+                0.227
+            ],
+            "angle": 0,
+            "content": "International Centre for Health"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.229,
+                0.952,
+                0.239
+            ],
+            "angle": 0,
+            "content": "and Society, University College"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.24,
+                0.955,
+                0.25
+            ],
+            "angle": 0,
+            "content": "London, 1-19 Torrington Place"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.251,
+                0.915,
+                0.261
+            ],
+            "angle": 0,
+            "content": "London WC1E 6BT, UK"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.262,
+                0.898,
+                0.272
+            ],
+            "angle": 0,
+            "content": "(Prof Sir M Marmot)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.813,
+                0.274,
+                0.912,
+                0.283
+            ],
+            "angle": 0,
+            "content": "m.marmot@ucl.ac.uk"
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.064,
+                0.966,
+                0.284,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.927,
+                0.967,
+                0.954,
+                0.976
+            ],
+            "angle": 0,
+            "content": "1099"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.084,
+                0.046,
+                0.195,
+                0.061
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.2,
+                0.159,
+                0.56,
+                0.362
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.197,
+                0.367,
+                0.531,
+                0.389
+            ],
+            "angle": 0,
+            "content": "Figure 1: Under-5 mortality rates per 1000 livebirths by socioeconomic quintile of household"
+        },
+        {
+            "type": "image_footnote",
+            "bbox": [
+                0.198,
+                0.39,
+                0.444,
+                0.4
+            ],
+            "angle": 0,
+            "content": "Reprinted from reference 9 with permission of Elsevier."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.195,
+                0.42,
+                0.561,
+                0.517
+            ],
+            "angle": 0,
+            "content": "Figure 1 shows under-5 mortality rates for four countries with households classified according to socioeconomic quintile. Child mortality varies among countries. Within countries, not only is child mortality highest among the poorest households but also there is a social gradient: the higher the socioeconomic level of the household the lower the mortality rate."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.196,
+                0.531,
+                0.245,
+                0.542
+            ],
+            "angle": 0,
+            "content": "Adults"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.196,
+                0.543,
+                0.56,
+                0.573
+            ],
+            "angle": 0,
+            "content": "Differences in adult mortality among countries are large and growing. Figure 2 shows probability of death"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.046,
+                0.583,
+                0.558,
+                0.906
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.044,
+                0.911,
+                0.408,
+                0.922
+            ],
+            "angle": 0,
+            "content": "Figure 2: Trends in adult mortality by sex in regions of the world, 1970-2002"
+        },
+        {
+            "type": "image_footnote",
+            "bbox": [
+                0.044,
+                0.922,
+                0.543,
+                0.945
+            ],
+            "angle": 0,
+            "content": "The graphs show the probability of death between 15 and 60 years of age per 1000 population. Reprinted from reference 7 with permission of the World Health Organization."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.158,
+                0.935,
+                0.323
+            ],
+            "angle": 0,
+            "content": "between age 15 and 60 years by region of the world between 1970 and 2002. Mortality rose in Africa and in the countries of central and eastern Europe whereas it declined in the world as a whole. By 2002, for example, men in the high mortality countries of Europe had more than \\(40\\%\\) probability of death between age 15 and 60 years compared to a \\(25\\%\\) probability in southeast Asia. These data are for regions. Among countries, the differences are even more dramatic. The probability of a man dying between age 15 and 60 years is \\(8 \\cdot 3\\%\\) in Sweden, \\(82 \\cdot 1\\%\\) in Zimbabwe, and \\(90 \\cdot 2\\%\\) in Lesotho."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.324,
+                0.936,
+                0.639
+            ],
+            "angle": 0,
+            "content": "A particularly telling example of health inequalities within countries is the 20-year gap in life expectancy between Australian Aboriginal and Torres Strait Islander peoples—life expectancy is 56·3 years for men and 62·8 years for women—and the Australian average.[10] The men in this population would look unhealthy in India (male life expectancy 60·1 years) whereas Australian life expectancy is among the highest in the world, marginally behind Iceland, Sweden, and Japan. The poor health of Aboriginal and Torres Strait Islander peoples is not the result of a high rate of child deaths. Infant mortality is 12·7 per 1000 livebirths. This figure is high by Australian standards, but on a scale from Iceland to Sierra Leone, it is much closer to Iceland than to Sierra Leone. The shortened life expectancy of Aboriginal and Torres Strait Islander peoples results from mortality in adults from non-communicable disease and injury. In this sense, the population is typical of the world health picture. Of the 45 million deaths among adults age 15 years and older in 2002, 32 million were due to non-communicable disease and a further 4·5 million to violent causes.[7]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.64,
+                0.936,
+                0.902
+            ],
+            "angle": 0,
+            "content": "Aboriginal and Torres Strait Islander peoples are a socially excluded minority within their country. But poor health is not confined to poor populations or those who are socially excluded. As with child mortality, there is a socioeconomic gradient in adult mortality rates within countries. Figure 3 shows that in Bangladesh, adult mortality rates vary inversely with level of education.[11] This gradient in mortality is quite remarkable. Within rich countries, with strikingly different material conditions from Bangladesh, there is a social gradient in mortality prompting consideration of the causal links between status and health.[12] Whether the social gradient in poor countries can be attributed to the same causal pathways is an urgent task for review. It is especially important because, in many countries, inequalities in health have been increasing.[13-15] In Russia for example, where life expectancy is low, social inequalities have grown (figure 4).[16]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.902,
+                0.936,
+                0.944
+            ],
+            "angle": 0,
+            "content": "Mortality statistics are readily available. They should not, however, lead to ignorance of the burden of non-fatal disease. In particular, mental illness causes much"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.046,
+                0.967,
+                0.075,
+                0.976
+            ],
+            "angle": 0,
+            "content": "1100"
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.717,
+                0.966,
+                0.936,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.807,
+                0.046,
+                0.916,
+                0.061
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.068,
+                0.158,
+                0.428,
+                0.352
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.065,
+                0.356,
+                0.393,
+                0.379
+            ],
+            "angle": 0,
+            "content": "Figure 3: Mortality and education in men aged 45-90 years in Matlab, Bangladesh, 1982-98\\(^{11}\\)"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.392,
+                0.429,
+                0.448
+            ],
+            "angle": 0,
+            "content": "suffering but its effect is not clear by inspection of mortality data. Worldwide, the second highest cause of disease burden among adults age 15-59 years is unipolar depressive disorder.[7]"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.064,
+                0.462,
+                0.312,
+                0.475
+            ],
+            "angle": 0,
+            "content": "The ageing of the world's population"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.475,
+                0.427,
+                0.613
+            ],
+            "angle": 0,
+            "content": "It is convenient, but quite wrong, to think that the greying of the world's population is an issue only for the rich countries. Figure 5 shows the projected increase between 2000 and 2030 in the population older than 65 years in selected countries.[17] The fastest rates of increase are in countries at an intermediate level of human development, starting from a low base. The social determinants of the health of older people claim attention alongside those of health at younger ages."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.063,
+                0.626,
+                0.411,
+                0.653
+            ],
+            "angle": 0,
+            "content": "Social determinants: poverty, inequality, and the causes of the causes"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.654,
+                0.427,
+                0.722
+            ],
+            "angle": 0,
+            "content": "In consulting widely in developing the plan for the Commission on Social Determinants of Health, a common question was: \"What's new? We know that poverty is bad for health. Does that need a Commission?\""
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.723,
+                0.427,
+                0.944
+            ],
+            "angle": 0,
+            "content": "It is not difficult to understand how poverty in the form of material deprivation—dirty water, poor nutrition—allied to lack of quality medical care can account for the tragically foreshortened lives of people in Sierra Leone. Such understanding is insufficient in two important ways. First, it fails properly to take into account that relief of such material deprivation is not simply a technical matter of providing clean water or better medical care. Who gets these resources is socially determined.[18] Second, and related, international policies have not been pursued as if they had people's basic needs in mind. The critics of the policies pursued by the International Monetary Fund in the global South have argued eloquently that the economic policies pursued under structural adjustment have not benefited disadvantaged people in"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.442,
+                0.158,
+                0.803,
+                0.353
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.44,
+                0.356,
+                0.771,
+                0.379
+            ],
+            "angle": 0,
+            "content": "Figure 4: Increase in educational differentials in mortality between the 1980s and 1990s in St Petersburg men<sup>16</sup>"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.392,
+                0.804,
+                0.448
+            ],
+            "angle": 0,
+            "content": "poor countries.\\(^{19}\\) Recognising the health effects of poverty is one thing. Taking action to relieve its effects entails a richer understanding of the health effects of social and economic policies."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.439,
+                0.448,
+                0.804,
+                0.627
+            ],
+            "angle": 0,
+            "content": "Dirty water, lack of calories, and poor antenatal care cannot account for the 20-year deficit in life expectancy of Australian Aboriginal and Torres Strait Islander peoples. On a world scale, their infant mortality rate, at 12-7 per 1000 livebirths, is low. Their high rate of adult mortality is from cardiovascular diseases, cancers, endocrine nutritional and metabolic diseases (including diabetes), external causes (violence), respiratory disorders, and digestive diseases.[10] This fact is not to deny that poverty is important. But the form that poverty takes and its health consequences are quite different when considering chronic disease and violent deaths in adults, compared to deaths from"
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.442,
+                0.636,
+                0.803,
+                0.905
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "image_caption",
+            "bbox": [
+                0.44,
+                0.91,
+                0.796,
+                0.932
+            ],
+            "angle": 0,
+            "content": "Figure 5: Projected percentage increase in the elderly population (older than 65 years) from 2000 to 2030 in selected countries"
+        },
+        {
+            "type": "image_footnote",
+            "bbox": [
+                0.441,
+                0.932,
+                0.751,
+                0.943
+            ],
+            "angle": 0,
+            "content": "Adapted from reference 17 with permission of the US Census Bureau."
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.065,
+                0.966,
+                0.283,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.927,
+                0.966,
+                0.954,
+                0.976
+            ],
+            "angle": 0,
+            "content": "1101"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.084,
+                0.046,
+                0.195,
+                0.061
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.21,
+                0.168,
+                0.342,
+                0.18
+            ],
+            "angle": 0,
+            "content": "Panel 2: The Solid Facts"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.209,
+                0.189,
+                0.541,
+                0.257
+            ],
+            "angle": 0,
+            "content": "Because the causes of the causes are not obvious, the WHO Regional Office for Europe asked a group at University College London to summarise the evidence on the social determinants of health, published as The Solid Facts.[22] It had ten messages on the social determinants of health based on:"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.258,
+                0.331,
+                0.271
+            ],
+            "angle": 0,
+            "content": "the social gradient"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.273,
+                0.263,
+                0.283
+            ],
+            "angle": 0,
+            "content": "- stress"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.286,
+                0.276,
+                0.298
+            ],
+            "angle": 0,
+            "content": "early life"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.3,
+                0.314,
+                0.311
+            ],
+            "angle": 0,
+            "content": "- social exclusion"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.314,
+                0.259,
+                0.324
+            ],
+            "angle": 0,
+            "content": "work"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.328,
+                0.315,
+                0.339
+            ],
+            "angle": 0,
+            "content": "- unemployment"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.342,
+                0.306,
+                0.353
+            ],
+            "angle": 0,
+            "content": "social support"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.355,
+                0.282,
+                0.366
+            ],
+            "angle": 0,
+            "content": "- addiction"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.369,
+                0.257,
+                0.38
+            ],
+            "angle": 0,
+            "content": "food"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.211,
+                0.384,
+                0.282,
+                0.395
+            ],
+            "angle": 0,
+            "content": "transport"
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.211,
+                0.258,
+                0.331,
+                0.395
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.209,
+                0.396,
+                0.545,
+                0.449
+            ],
+            "angle": 0,
+            "content": "As an indication that there was a ready audience for these messages, in the first 12 months after publication of the second edition it was downloaded from the internet 218000 times."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.209,
+                0.451,
+                0.548,
+                0.519
+            ],
+            "angle": 0,
+            "content": "The Solid Facts reviewed evidence from Europe, aimed mainly at reducing inequalities in health within countries. The task of the Commission will be to review evidence on the social determinants of health that are relevant to global health: inequalities among countries and within."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.196,
+                0.544,
+                0.56,
+                0.571
+            ],
+            "angle": 0,
+            "content": "infectious disease in children. It entails a richer understanding of the social determinants of health."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.195,
+                0.571,
+                0.56,
+                0.847
+            ],
+            "angle": 0,
+            "content": "The health experience of Aboriginal and Torres Strait Islander peoples has relevance for the health of disadvantaged people worldwide. While in Africa the major contributor to premature mortality is communicable disease, in every other region of the world it is non-communicable disease.1 Careful analysis of the global burden of disease has pointed to the importance of risk factors, such as being overweight, smoking, alcohol, and poor diet.20 These are indeed potent causes. But would it be helpful to go into a deprived Australian Aboriginal population and point out that they should really take better care of themselves—that their smoking and obesity were killing them; and if they must drink, please do so in moderation? Unlikely. To borrow Geoffrey Rose's term, we need to examine the causes of the causes:21 the social conditions that give rise to high risk of non-communicable disease whether acting through unhealthy behaviours or through the effects of impossibly stressful lives12 (panel 2)."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.195,
+                0.848,
+                0.56,
+                0.944
+            ],
+            "angle": 0,
+            "content": "A further answer to the what's new question: although it might be obvious that poverty is at the root of much of the problem of infectious disease, and needs to be solved, it is less obvious how to break the link between poverty and disease. Income poverty provides, at best, an incomplete explanation of differences in mortality among countries or among"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.158,
+                0.935,
+                0.296
+            ],
+            "angle": 0,
+            "content": "subgroups within countries. It is well known that among rich countries, there is little correlation between gross national product (GNP) per person and life expectancy. Greece for example, with a GNP at purchasing power parities of just more than US$17 000, has a life expectancy of 78·1 years; the USA, with a GNP of more than $34 000, has a life expectancy of 76·9 years. Costa Rica and Cuba stand out as countries with GNPs less than $10 000 and yet life expectancies of 77·9 years and 76·5 years.[23]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.296,
+                0.935,
+                0.462
+            ],
+            "angle": 0,
+            "content": "There are many examples of relatively poor populations with similar incomes but strikingly different health records.8 Kerala and China, famously, have good health, despite low incomes.24 The social processes that lead to this beneficial state of health need not wait for the world order to be changed to relieve poverty in the worst-off countries. A social determinants perspective is crucial. It is also important to enquire whether the action that is taking place to relieve poverty is having the desired effect not only on average incomes but also on income distribution and hence on the poorest people."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.462,
+                0.935,
+                0.64
+            ],
+            "angle": 0,
+            "content": "The social gradient in health is a particular challenge. Where material deprivation is severe, a social gradient in mortality could arise from degrees of absolute deprivation. In rich countries with low levels of material deprivation the gradient changes the focus from absolute to relative deprivation.[25] Relative deprivation relates to a broader approach to social functioning and meeting of human needs[12]—capabilities in the words of Amartya Sen,[26] spiritual resources to use Robert Fogel's term.[27] It is likely that both material or physical needs and capability, spiritual, or psychosocial needs are important to the gradient in health, which will, therefore, be an important focus."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.641,
+                0.936,
+                0.737
+            ],
+            "angle": 0,
+            "content": "A focus on material conditions and control of infectious disease must not be to the exclusion of social determinants. The circumstances in which people live and work are as important for communicable as they are for non-communicable disease. Social conditions powerfully influence both the onset and response to treatment of the major infectious diseases that kill.[28,29]"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.737,
+                0.935,
+                0.861
+            ],
+            "angle": 0,
+            "content": "The Commission on Social Determinants of Health will need to have in its sights poverty of the sub-Saharan African sort and the social determinants that account for Bolivia having 14 fewer years of life expectancy than Costa Rica or Aboriginal and Torres Strait Islander peoples having 20 years fewer than other Australians. As these examples illustrate, it will examine inequalities in health between countries and inequalities within."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.572,
+                0.873,
+                0.82,
+                0.888
+            ],
+            "angle": 0,
+            "content": "Action is possible and necessary"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.571,
+                0.888,
+                0.936,
+                0.944
+            ],
+            "angle": 0,
+            "content": "A review of policies in European countries identified several that took action on the social determinants of health.30 Although the reason for the policies was not necessarily to improve health they were nevertheless"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.047,
+                0.967,
+                0.075,
+                0.976
+            ],
+            "angle": 0,
+            "content": "1102"
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.717,
+                0.966,
+                0.936,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.807,
+                0.046,
+                0.917,
+                0.061
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.158,
+                0.427,
+                0.226
+            ],
+            "angle": 0,
+            "content": "relevant to health: taxation and tax credits, old-age pensions, sickness or rehabilitation benefits, maternity or child benefits, unemployment benefits, housing policies, labour markets, communities, and care facilities."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.227,
+                0.428,
+                0.406
+            ],
+            "angle": 0,
+            "content": "In Sweden, the new strategy for public health is \"to create social conditions that will ensure good health for the entire population\".<sup>31</sup> Of 11 policy domains, five relate to social determinants: participation in society, economic and social security, conditions in childhood and adolescence, healthier working life, and environment and products. These are in addition to health promoting medical care and the usual health behaviours. The UK set reduction of health inequalities as a key aim of health policy. It assembled evidence and expert judgments on areas suitable for policy development.<sup>32</sup> These then formed the basis of a plan of action to reduce health inequalities.<sup>33</sup>"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.407,
+                0.428,
+                0.531
+            ],
+            "angle": 0,
+            "content": "These are examples from rich countries. There are further encouraging examples. Familias en Accion in Colombia transfers cash to poor families. To qualify, families must ensure their children receive preventive health care, enrol in school, and attend classes. The results are encouraging: favourable growth of children and fewer episodes of diarrhoea.[34] The Oportunidades programme in Mexico had somewhat similar aims with similarly encouraging results.[35]"
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.064,
+                0.543,
+                0.238,
+                0.558
+            ],
+            "angle": 0,
+            "content": "Meeting human needs"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.558,
+                0.427,
+                0.722
+            ],
+            "angle": 0,
+            "content": "Two linked themes provide the rationale for the Commission on Social Determinants of Health. First, there is no choice. If the major determinants of health are social, so must be the remedies. Treating existing disease is urgent and will always receive high priority but should not be to the exclusion of taking action on the underlying social determinants of health. Disease control, properly planned and directed, has a good history, but so too does social and economic development in combating major disease and improving population health. Wider social policy will be crucial to reduction of inequalities in health."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.062,
+                0.724,
+                0.427,
+                0.901
+            ],
+            "angle": 0,
+            "content": "There is a second theme that relates to the question of how one can tell if a population is thriving. One standard answer is to measure economic wellbeing with measures such as GNP, average income, or consumption patterns. A better answer is to measure health status.[36] There is no difficulty in convincing medical and health personnel that health is important—that is what we do. It is more challenging, but necessary, to convince policy makers and others that the health of the population is important precisely because it is a measure of whether, in the end, a population is benefiting as a result of a set of social arrangements."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.063,
+                0.902,
+                0.428,
+                0.944
+            ],
+            "angle": 0,
+            "content": "In other words, action on the social determinants of health is necessary not only to improve health but also because such improvement will indicate that society"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.438,
+                0.158,
+                0.803,
+                0.296
+            ],
+            "angle": 0,
+            "content": "has moved in a direction of meeting human needs.[37] There is a great deal of dogmatic dispute about the rights and wrongs of economic and social policies. People use labels—globalisation, neoliberal economic policies—as badges of allegiance and terms of abuse. The Commission will have one basic dogma: policies that harm human health need to be identified and, where possible, changed. From this perspective, globalisation and markets are good or bad in so far as the way they are operated affects health."
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.438,
+                0.297,
+                0.804,
+                0.406
+            ],
+            "angle": 0,
+            "content": "Inequalities in health between and within countries are avoidable.[38] There is no necessary biological reason why life expectancy should be 48 years longer in Japan than in Sierra Leone or 20 years shorter in Australian Aboriginal and Torres Strait Islander peoples than in other Australians. Reducing these social inequalities in health, and thus meeting human needs, is an issue of social justice."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.44,
+                0.411,
+                0.59,
+                0.421
+            ],
+            "angle": 0,
+            "content": "Conflict of interest statement"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.44,
+                0.421,
+                0.744,
+                0.444
+            ],
+            "angle": 0,
+            "content": "Michael Marmot is chairman of the Commission on Social Determinants of Health."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.44,
+                0.45,
+                0.537,
+                0.46
+            ],
+            "angle": 0,
+            "content": "Acknowledgments"
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.44,
+                0.46,
+                0.793,
+                0.504
+            ],
+            "angle": 0,
+            "content": "Grateful thanks to Ruth Bell, Hilary Brown, Tim Evans, Alec Irwin, Rene Loewenson, Nicole Valentine, Jeanette Vega, and members of the WHO Equity team who have worked to develop the Commission and the ideas in this report."
+        },
+        {
+            "type": "title",
+            "bbox": [
+                0.441,
+                0.51,
+                0.498,
+                0.519
+            ],
+            "angle": 0,
+            "content": "References"
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.519,
+                0.801,
+                0.54
+            ],
+            "angle": 0,
+            "content": "1 WHO. The World Health Report 2004: changing history. Geneva: World Health Organization, 2004."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.541,
+                0.786,
+                0.581
+            ],
+            "angle": 0,
+            "content": "2 Murray CJL, Michaud CM, McKenna MT, Marks JS. US patterns of mortality by county and race: 1965-94. Cambridge: Harvard Center for Population and Development Studies, 1998."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.582,
+                0.792,
+                0.634
+            ],
+            "angle": 0,
+            "content": "3 WHO. Treating 3 million by 2005: making it happen: the WHO strategy—the WHO and UNAIDS global initiative to provide retroviral therapy to 3 million people with HIV/AIDS in developing countries by the end of 2005. Geneva: World Health Organization, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.634,
+                0.765,
+                0.655
+            ],
+            "angle": 0,
+            "content": "4 The Global Fund to fight AIDS, tuberculosis, and malaria. http://www.theglobalfund.org."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.656,
+                0.793,
+                0.678
+            ],
+            "angle": 0,
+            "content": "5 United Nations Development Group. Millennium Development Goals, http://www.developmentgoals.org."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.679,
+                0.79,
+                0.708
+            ],
+            "angle": 0,
+            "content": "6 Sachs JD, McArthur JW. The Millennium Project: a plan for meeting the Millennium Development Goals. Lancet 2005; 365: 347-53."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.71,
+                0.787,
+                0.731
+            ],
+            "angle": 0,
+            "content": "7 WHO. World Health Report 2003: shaping the future. Geneva: World Health Organization, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.731,
+                0.788,
+                0.753
+            ],
+            "angle": 0,
+            "content": "8 United Nations. Human Development Report 2004. New York: United Nations Development Programme, 2004."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.754,
+                0.802,
+                0.785
+            ],
+            "angle": 0,
+            "content": "9 Victora CG, Wagstaff A, Schellenberg JA, Gwatkin D, Claeson M, Habicht JP. Applying an equity lens to child health and mortality: more of the same is not enough. Lancet 2003; 362: 233-41."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.786,
+                0.785,
+                0.837
+            ],
+            "angle": 0,
+            "content": "10 Aboriginal and Torres Strait Commissioner, Statistics Human Rights and Equal Opportunity Commission. A statistical overview of Aboriginal and Torres Strait Islander peoples in Australia. http://www.humanrights.gov.au/socialjustice/statistics/index.html (accessed Oct 28, 2004)."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.838,
+                0.781,
+                0.869
+            ],
+            "angle": 0,
+            "content": "11 Hurt LS, Ronsmans C, Saha S. Effects of education and other socioeconomic factors on middle age mortality in rural Bangladesh. J Epidemiol Community Health 2004; 58: 315-20."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.87,
+                0.763,
+                0.881
+            ],
+            "angle": 0,
+            "content": "12 Marmot M. Status syndrome. London: Bloomsbury, 2004."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.441,
+                0.882,
+                0.787,
+                0.903
+            ],
+            "angle": 0,
+            "content": "13 Donkin A, Goldblatt P, Lynch K. Inequalities in life expectancy by social class 1972-1999. Health Stat Q 2002; 15: 5-15."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.442,
+                0.904,
+                0.797,
+                0.934
+            ],
+            "angle": 0,
+            "content": "14 Mackenbach JP, Bos V, Andersen O, et al. Widening socioeconomic inequalities in mortality in six Western European countries. Int J Epidemiol 2003; 32: 830-37."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.441,
+                0.519,
+                0.802,
+                0.934
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.064,
+                0.966,
+                0.285,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.927,
+                0.966,
+                0.954,
+                0.977
+            ],
+            "angle": 0,
+            "content": "1103"
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.084,
+                0.046,
+                0.195,
+                0.062
+            ],
+            "angle": 0,
+            "content": "Public Health"
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.198,
+                0.161,
+                0.548,
+                0.191
+            ],
+            "angle": 0,
+            "content": "15 Crimmins EM, Saito Y. Trends in healthy life expectancy in the United States, 1970-1990: gender, racial, and educational differences. Soc Sci Med 2001; 52: 1629-41."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.192,
+                0.545,
+                0.224
+            ],
+            "angle": 0,
+            "content": "16 Plavinski SL, Plavinskaya SI, Klimov AN. Social factors and increase in mortality in Russia in the 1990s: prospective cohort study. BMJ 2003; 326: 1240-42."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.225,
+                0.544,
+                0.255
+            ],
+            "angle": 0,
+            "content": "17 Kinsella K, Velkoff VA, US Census Bureau. An aging world: 2001—series P95/01-1. Washington: US Government Printing Office, 2001."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.257,
+                0.545,
+                0.287
+            ],
+            "angle": 0,
+            "content": "18 Kim JY, Millen JV, Irwin A, Gershman J. Dying for growth: global inequality and the health of the poor. Monroe: Common Courage Press, 2000."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.288,
+                0.557,
+                0.308
+            ],
+            "angle": 0,
+            "content": "19 Stiglitz JE. Globalization and its discontents. London: Allen Lane, 2002."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.31,
+                0.533,
+                0.331
+            ],
+            "angle": 0,
+            "content": "20 WHO. Reducing risks, promoting healthy life: World Health Report 2002. Geneva: World Health Organization, 2002."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.332,
+                0.512,
+                0.352
+            ],
+            "angle": 0,
+            "content": "21 Rose G. Strategy of preventive medicine. Oxford: Oxford University Press, 1992."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.354,
+                0.543,
+                0.374
+            ],
+            "angle": 0,
+            "content": "22 Wilkinson R, Marmot M. The Solid Facts. Copenhagen: World Health Organization, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.376,
+                0.553,
+                0.396
+            ],
+            "angle": 0,
+            "content": "23 United Nations Development Programme. Human development report. New York: Oxford University Press, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.398,
+                0.533,
+                0.417
+            ],
+            "angle": 0,
+            "content": "24 Sen A. Development as freedom. New York: Alfred A Knopf, 1999."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.419,
+                0.523,
+                0.44
+            ],
+            "angle": 0,
+            "content": "25 Wilkinson RG. The impact of inequality: how to make sick societies healthier. London: Routledge, 2005."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.441,
+                0.548,
+                0.46
+            ],
+            "angle": 0,
+            "content": "26 Sen A. Inequality reexamined. Oxford: Oxford University Press, 1992."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.199,
+                0.462,
+                0.527,
+                0.484
+            ],
+            "angle": 0,
+            "content": "27 Fogel RW. The fourth great awakening and the future of egalitarianism. Chicago: University of Chicago Press, 2000."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.198,
+                0.161,
+                0.557,
+                0.484
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.161,
+                0.916,
+                0.181
+            ],
+            "angle": 0,
+            "content": "28 Farmer P. Infections and inequalities. Berkeley: University of California Press, 1999."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.183,
+                0.919,
+                0.213
+            ],
+            "angle": 0,
+            "content": "29 Farmer P. Pathologies of power: health, human rights, and the new war on the poor. Berkeley: University of California Press, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.215,
+                0.912,
+                0.244
+            ],
+            "angle": 0,
+            "content": "30 Crombie IK, Irvine L, Elliott L, Wallace H. Closing the health inequalities gap: an international perspective. Dundee: NHS Health Scotland and University of Dundee, 2004."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.246,
+                0.933,
+                0.277
+            ],
+            "angle": 0,
+            "content": "31 Hogstedt H, Lundgren B, Moberg H, Pettersson B, Agren G. The Swedish public health policy and the National Institute of Public Health. Scan J Public Health 2004; 32 (suppl 64): 1-64."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.279,
+                0.906,
+                0.298
+            ],
+            "angle": 0,
+            "content": "32 Acheson D. Inequalities in health: report of an independent inquiry. London; HMSO, 1998."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.3,
+                0.911,
+                0.321
+            ],
+            "angle": 0,
+            "content": "33 Department of Health. Tackling health inequalities: a programme for action. London, Department of Health, 2003."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.322,
+                0.935,
+                0.362
+            ],
+            "angle": 0,
+            "content": "34 Attanasio O, Vera-Hernandez M. Medium and long run effects of nutrition and child care: evaluation of a community nursery programme in rural Colombia—IFS working papers EWP04/06. London: Institute for Fiscal Studies, 2004."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.364,
+                0.916,
+                0.394
+            ],
+            "angle": 0,
+            "content": "35 World Bank. Mexico's Oportunidades program. http://www.worldbank.org/wbi/reducingpoverty/case-Mexico-OPORTUNIDADES.html (accessed Feb 9, 2005)."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.396,
+                0.933,
+                0.426
+            ],
+            "angle": 0,
+            "content": "36 Sen A. Mortality as an indicator of success and failure: Innocenti Inaugural Lecture 1995. Instituto degli Innocenti, Florence, Italy; March 3, 1995."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.428,
+                0.927,
+                0.447
+            ],
+            "angle": 0,
+            "content": "37 Doyal L, Gough I. A theory of human need. London: Macmillan, 1991."
+        },
+        {
+            "type": "ref_text",
+            "bbox": [
+                0.575,
+                0.449,
+                0.926,
+                0.47
+            ],
+            "angle": 0,
+            "content": "38 Whitehead M. The concepts and principles of equity and health. Copenhagen: World Health Organization, 1990."
+        },
+        {
+            "type": "list",
+            "bbox": [
+                0.575,
+                0.161,
+                0.935,
+                0.47
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.047,
+                0.967,
+                0.075,
+                0.977
+            ],
+            "angle": 0,
+            "content": "1104"
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.717,
+                0.967,
+                0.936,
+                0.977
+            ],
+            "angle": 0,
+            "content": "www.thelancet.com Vol 365 March 19, 2005"
+        }
+    ]
+]

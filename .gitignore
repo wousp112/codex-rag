@@ -1,11 +1,7 @@
-﻿__pycache__/
+.env
+__pycache__/
 *.pyc
-meta/
-outputs/
-raw/
-parsed/
-chunks/
-index/
 *.log
-执行AI输出log/
-
+.venv/
+.vscode/
+.idea/

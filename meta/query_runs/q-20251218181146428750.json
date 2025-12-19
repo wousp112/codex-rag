@@ -1,0 +1,11 @@
+{
+  "query_id": "q-20251218181146428750",
+  "q_raw": "test question",
+  "q_zh": "test question",
+  "q_en": "test question",
+  "mode": "evidence",
+  "filters": {},
+  "returned": 0,
+  "build_id": "build-20251218181141-ec1c8f-0.1.0",
+  "timestamp": "2025-12-18T18:11:46Z"
+}

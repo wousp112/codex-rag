@@ -7,6 +7,10 @@ import os
 import hashlib
 from pathlib import Path
 from typing import Optional, List
+from dotenv import load_dotenv
+
+# 立即加载 .env 环境变量
+load_dotenv()
 
 from . import __version__
 from .config import load_config, save_default_config, config_hash, DEFAULT_CONFIG
@@ -93,6 +97,13 @@ def cmd_init(args):
     base_paths = ['raw', 'parsed', 'chunks', 'index', 'meta', 'outputs']
     for p in base_paths:
         ensure_dir(root / p)
+    
+    # outputs 子目录 (PR 9.1)
+    outputs_path = root / 'outputs'
+    ensure_dir(outputs_path / 'drafts')
+    ensure_dir(outputs_path / 'evidence')
+    ensure_dir(outputs_path / 'audits')
+
     # raw 子目录：evidence + instruction 各类
     raw = root / 'raw'
     ensure_dir(raw / 'evidence')
@@ -160,41 +171,46 @@ def cmd_parse(args):
     meta_path = meta_dir(cfg)
     ensure_dir(parsed_dir)
 
-    files = [f for f in raw_dir.rglob('*.*') if f.is_file()]
+    # 1. 扫描所有原始文件
+    all_files = [f for f in raw_dir.rglob('*.*') if f.is_file() and f.suffix.lower() in ['.pdf', '.docx', '.pptx', '.png', '.jpg']]
 
-    if not files:
-        report = meta_path / 'parse_quality_report.md'
-        report.write_text(
-            '## Parse Quality Report\n- 状态：stub（未发现原始文件）\n- 提示：请将 PDF/Docx 放入 raw/ 对应子目录后重跑 rag parse。\n',
-            encoding='utf-8',
-        )
-        print(human_warn('未找到原始文件，已生成空的 parse 质量报告。'))
-        _write_version_log(cfg, report, 'create', 'parse_quality_report')
+    if not all_files:
+        print(human_warn('未找到原始文件（pdf/docx/pptx/png/jpg），请放入 raw/ 对应子目录。'))
         _instruction_assimilation(cfg, raw_dir)
         return
 
-    api_key = os.environ.get('MINERU_API_KEY')
-    if not api_key:
-        api_key = cfg.get('api_keys', {}).get('mineru')
-    if not api_key:
-        report = meta_path / 'parse_quality_report.md'
-        report.write_text(
-            '## Parse Quality Report\n- 状态：stub（缺少 MINERU_API_KEY）\n- 提示：设置环境变量 MINERU_API_KEY 后重跑；当前未执行远程解析。\n',
-            encoding='utf-8',
-        )
-        print(human_warn('缺少 MINERU_API_KEY，parse 以 stub 方式结束，未调用外部 API。'))
-        _write_version_log(cfg, report, 'create', 'parse_quality_report')
-        _instruction_assimilation(cfg, raw_dir)
-        return
+    api_key = os.environ.get('MINERU_API_KEY') or cfg.get('api_keys', {}).get('mineru')
+    if not api_key or api_key == "REPLACE_WITH_MINERU_API_KEY":
+        _fail("缺少 MINERU_API_KEY，请在环境变量或 config.yaml 中配置。", ErrorCode.CONFIG_INVALID)
 
+    # 2. 预处理：PDF 拆分
+    from .parser import MinerUParser
+    parser = MinerUParser(api_key)
+    
+    files_to_parse = []
+    temp_split_dir = root / "meta" / "tmp_splits"
+    ensure_dir(temp_split_dir)
+
+    logger.info("正在执行预检与拆分计划...")
+    for f in all_files:
+        if f.suffix.lower() == '.pdf':
+            parts = parser.split_pdf(f, temp_split_dir)
+            files_to_parse.extend(parts)
+        else:
+            files_to_parse.append(f)
+
+    # 3. 提交 MinerU 解析
+    logger.info(f"计划解析 {len(files_to_parse)} 个文件单元...")
+    parser.parse_files(files_to_parse, parsed_dir)
+
+    # 4. 生成质量报告与指令吸收
     report = meta_path / 'parse_quality_report.md'
     report.write_text(
-        '## Parse Quality Report\n- 状态：stub（占位实现）\n- 已检测到原始文件数量：{}\n- 下一步：集成 MinerU 批量上传/轮询/下载。\n'.format(len(files)),
+        f"## Parse Quality Report\n- 状态：完成\n- 原始文件数：{len(all_files)}\n- 解析单元数：{len(files_to_parse)}\n- 时间：{now_ts()}\n",
         encoding='utf-8',
     )
-    print('检测到 MINERU_API_KEY，但 v1 未实现真实上传，保持 stub。')
-    _write_version_log(cfg, report, 'create', 'parse_quality_report')
     _instruction_assimilation(cfg, raw_dir)
+    print("parse 流程执行完毕。")
 
 
 def _instruction_assimilation(cfg: dict, raw_dir: Path):
@@ -247,93 +263,47 @@ def cmd_chunk(args):
     root = project_root()
     parsed_dir = root / cfg['paths']['parsed']
     chunks_dir = root / cfg['paths']['chunks']
-    ensure_dir(chunks_dir)
-
-    md_files = list(parsed_dir.rglob('*.md'))
-    if not md_files:
-        _write_empty_chunk_outputs(chunks_dir, cfg)
-        print(human_warn('未找到解析结果（parsed/ 为空），已生成空 chunks 输出。'))
-        return
-
-    parents_path = chunks_dir / 'parents.jsonl'
-    chunks_path = chunks_dir / 'chunks.jsonl'
-    manifest_path = chunks_dir / 'chunk_manifest.json'
-    parents = []
-    childs = []
-    for md in md_files:
-        doc_uid = md.stem
-        parent_id = f"{doc_uid}:p001"
-        text = md.read_text(encoding='utf-8')
-        p_hash = _sha(text)
-        parents.append(
-            {
-                'doc_uid': doc_uid,
-                'parent_id': parent_id,
-                'page_index': 1,
-                'page_start': 1,
-                'page_end': 1,
-                'section_path': [],
-                'parent_text': text[:500],
-                'citable': True,
-                'source_type': 'evidence',
-                'hash': p_hash,
-            }
-        )
-        c_hash = _sha(text[:200])
-        childs.append(
-            {
-                'chunk_id': f"{doc_uid}:c001",
-                'parent_id': parent_id,
-                'doc_uid': doc_uid,
-                'char_start': 0,
-                'char_end': min(200, len(text)),
-                'text': text[:200],
-                'citable': True,
-                'source_type': 'evidence',
-                'hash': c_hash,
-            }
-        )
-        # 写入文档级元数据（若不存在）
-        doc_meta = meta_dir(cfg) / f"{doc_uid}.json"
-        if not doc_meta.exists():
-            write_json(
-                doc_meta,
-                {
-                    "doc_uid": doc_uid,
-                    "source_type": "evidence",
-                    "citable": True,
-                    "captured_at": now_ts(),
-                },
-            )
-    parents_path.write_text('\n'.join(json.dumps(p, ensure_ascii=False) for p in parents), encoding='utf-8')
-    chunks_path.write_text('\n'.join(json.dumps(c, ensure_ascii=False) for c in childs), encoding='utf-8')
-    manifest = {
-        'documents': len(parents),
-        'chunks': len(childs),
-        'generated_at': now_ts(),
-        'parent_hashes': [p['hash'] for p in parents],
-        'child_hashes': [c['hash'] for c in childs],
-    }
-    write_json(manifest_path, manifest)
-    _write_version_log(cfg, parents_path, 'create', 'chunks')
-    _write_version_log(cfg, chunks_path, 'create', 'chunks')
-    _write_version_log(cfg, manifest_path, 'create', 'chunk_manifest')
-    print(f'已生成 {len(childs)} 条 child 记录。')
+    meta_path = meta_dir(cfg)
+    
+    from .chunker import run_chunking
+    logger.info("正在执行分块 (Parent-Child 策略)...")
+    count = run_chunking(parsed_dir, chunks_dir, meta_path)
+    
+    if count == 0:
+        print(human_warn('未发现可分块的解析内容，请先执行 rag parse。'))
+    else:
+        print(f'分块完成，共生成 {count} 条 child 记录。')
 
 
 @handle_exception
 def cmd_embed(args):
     _require_init()
     cfg = load_config(Path('config.yaml'))
+    root = project_root()
     chunks_path = Path(cfg['paths']['chunks']) / 'chunks.jsonl'
     if not chunks_path.exists():
         _fail('未找到 chunks/chunks.jsonl，请先运行 rag chunk。', ErrorCode.EMBED_NO_CHUNKS)
 
-    lines = [ln for ln in chunks_path.read_text(encoding='utf-8').splitlines() if ln.strip()]
-    chunk_count = len(lines)
-    if chunk_count == 0:
-        print(human_warn('chunks.jsonl 为空，未生成向量，但仍写入 build manifest。'))
+    import json
+    chunks = []
+    with open(chunks_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line.strip():
+                chunks.append(json.loads(line))
 
+    if not chunks:
+        print(human_warn('chunks.jsonl 为空，未生成向量。'))
+        return
+
+    from .vector_store import VectorStore
+    db_dir = root / cfg['paths']['index'] / "lancedb"
+    ensure_dir(db_dir)
+    
+    vs = VectorStore(db_dir)
+    logger.info(f"正在为 {len(chunks)} 条 chunk 生成向量并存入 LanceDB...")
+    vs.add_chunks(chunks)
+
+    # 写入 build manifest
     cfg_hash = config_hash(cfg)
     build_id = generate_build_id(cfg_hash, __version__)
     manifest = {
@@ -341,15 +311,15 @@ def cmd_embed(args):
         'created_at': now_ts(),
         'config_hash': cfg_hash,
         'tool_version': __version__,
-        'chunk_count': chunk_count,
+        'chunk_count': len(chunks),
         'provider': cfg['embedding']['provider'],
-        'status': 'stub',
+        'status': 'success',
     }
     build_dir = meta_dir(cfg) / 'builds' / build_id
     ensure_dir(build_dir)
     write_json(build_dir / 'build_manifest.json', manifest)
     _write_version_log(cfg, build_dir / 'build_manifest.json', 'create', 'build_manifest')
-    print(f'已写入 build manifest：{build_id}')
+    print(f'Embed 完成，已写入 build manifest：{build_id}')
 
 
 @handle_exception
@@ -366,79 +336,122 @@ def cmd_build_bm25(args):
     print('已创建 bm25 占位说明文件。')
 
 
+def _retrieve_candidates(query_text: str, vs, judge, cfg: dict, extra_filter: Optional[str] = None) -> tuple[List[dict], List[str]]:
+    """
+    公共检索逻辑: Expand -> Multi-Search -> Dedup -> Rerank
+    返回: (final_results, variants_used)
+    """
+    # 1. Query Expansion
+    logger.info(f"正在进行查询扩展: {query_text}")
+    variants = judge.expand_query(query_text)
+    queries = [query_text] + variants
+    # logger.info(f"多路召回查询词: {queries}")
+
+    # 构造过滤器
+    base_filter = "citable = true"
+    final_filter = f"{base_filter} AND {extra_filter}" if extra_filter else base_filter
+
+    # 2. Retrieve & Dedup
+    candidate_map = {} 
+    for q in queries:
+        # 每路召回 candidate_k 条
+        res = vs.search(q, limit=cfg['rerank']['candidate_k'], filters=final_filter)
+        for r in res:
+            cid = r.get("chunk_id")
+            if cid and cid not in candidate_map:
+                candidate_map[cid] = r
+    
+    candidates = list(candidate_map.values())
+    # logger.info(f"多路召回合并后共 {len(candidates)} 条候选。")
+
+    if not candidates:
+        return [], variants
+
+    # 3. Rerank
+    final_results = candidates
+    if cfg['rerank']['enabled']:
+        final_results = vs.rerank(query_text, candidates, model=cfg['rerank']['model'])
+        
+    # Cut Top N
+    return final_results[:cfg['rerank']['top_n']], variants
+
+
 @handle_exception
 def cmd_query(args):
     _require_init()
     cfg = load_config(Path('config.yaml'))
+    root = project_root()
     meta_path = meta_dir(cfg)
+    
     build_manifest_path = latest_build_manifest(meta_path)
     if not build_manifest_path:
         _fail('未找到任何 build，请先运行 rag embed。', ErrorCode.QUERY_NO_BUILD)
 
-    build_data = read_json(build_manifest_path)
-    chunks_file = Path(cfg['paths']['chunks']) / 'chunks.jsonl'
-    if not chunks_file.exists():
-        _fail('缺少 chunks/chunks.jsonl，请先 rag chunk。', ErrorCode.QUERY_NO_INDEX)
-    lines = [json.loads(ln) for ln in chunks_file.read_text(encoding='utf-8').splitlines() if ln.strip()]
+    from .vector_store import VectorStore
+    from .judge import RagJudge
+    
+    db_dir = root / cfg['paths']['index'] / "lancedb"
+    vs = VectorStore(db_dir)
+    judge = RagJudge()
 
-    results = []
-    for ln in lines:
-        if not ln.get('citable', False):
-            _print_filters_and_summary(lines)
-            _fail('检索结果包含 citable=false，已终止。', ErrorCode.QUERY_CITABLE_VIOLATION)
-        if not ln.get('doc_uid') or not ln.get('parent_id'):
-            _print_filters_and_summary(lines)
-            _fail('缺少 doc_uid 或 parent_id，已终止。', ErrorCode.QUERY_CITABLE_VIOLATION)
-        results.append(ln)
+    # 调用公共检索逻辑
+    final_results, variants = _retrieve_candidates(args.question, vs, judge, cfg)
 
+    if not final_results:
+        print(human_warn("未找到相关证据。"))
+        return
+
+    # 回填 Parent 上下文
+    parents_file = Path(cfg['paths']['chunks']) / 'parents.jsonl'
+    parents_map = {}
+    if parents_file.exists():
+        with open(parents_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                p = json.loads(line)
+                parents_map[p['parent_id']] = p
+
+    # 生成 Evidence Pack
     query_id = generate_query_id()
-    run_record = {
-        'query_id': query_id,
-        'q_raw': args.question,
-        'q_zh': args.question,
-        'q_en': args.question,
-        'mode': args.mode,
-        'filters': {},
-        'returned': len(results),
-        'build_id': build_data['build_id'],
-        'timestamp': now_ts(),
-    }
-    write_json(meta_path / 'query_runs' / f'{query_id}.json', run_record)
-    _write_version_log(cfg, meta_path / 'query_runs' / f'{query_id}.json', 'create', 'query_run')
-
     out_dir = outputs_dir(cfg)
     ep_path = next_version_path(out_dir, 'evidence_pack')
-    locator_quality = 'weak' if not results else 'page'
+    
+    _print_filters_and_summary(final_results)
+    
     lines_out = [
         f"# Evidence Pack",
-        f"- build_id: {build_data['build_id']}",
+        f"- build_id: {read_json(build_manifest_path)['build_id']}",
         f"- query_id: {query_id}",
-        f"- LOCATOR_QUALITY: {locator_quality}",
+        f"- LOCATOR_QUALITY: page",
         f"- Applied filters: citable=true",
-        f"- Returned sources summary: count={len(results)}",
+        f"- Returned sources summary: count={len(final_results)}",
+        f"- Query variants used: {json.dumps(variants, ensure_ascii=False)}",
         "",
     ]
-    for idx, r in enumerate(results, 1):
-        locq = 'page' if r.get('page_index') else 'char_anchor' if r.get('char_start') else 'weak'
-        if not r.get('parent_id') or r.get('doc_uid') is None:
-            _fail('缺少 doc_uid 或 parent_id，已终止。', ErrorCode.QUERY_CITABLE_VIOLATION)
+
+    for idx, r in enumerate(final_results, 1):
+        parent = parents_map.get(r['parent_id'], {})
         lines_out.append(f"## Evidence {idx}")
-        lines_out.append(f"- doc_uid: {r.get('doc_uid')}")
-        lines_out.append(f"- citation_key: {r.get('doc_uid')}")
-        lines_out.append(f"- source_type: {r.get('source_type', 'evidence')}")
-        lines_out.append(f"- citable: {r.get('citable')}")
-        lines_out.append(f"- parent_id: {r.get('parent_id')}")
-        lines_out.append(f"- locator_quality: {locq}")
-        if r.get('page_index') is not None:
-            lines_out.append(f"- page_index: {r.get('page_index')}")
-        elif r.get('char_start') is not None:
-            print(human_warn("locator 退化为 char_anchor（缺页码）。"))
-            lines_out.append(f"- char_anchor: {r.get('char_start')}–{r.get('char_end')}")
-        lines_out.append(f"- snippet: {r.get('text','')[:120]}")
+        lines_out.append(f"- doc_uid: {r['doc_uid']}")
+        lines_out.append(f"- citation_key: {r['doc_uid']}")
+        lines_out.append(f"- source_type: {r['source_type']}")
+        lines_out.append(f"- parent_id: {r['parent_id']}")
+        lines_out.append(f"- page_index: {parent.get('page_index', 'unknown')}")
+        lines_out.append(f"- snippet: {r['text'].strip()}")
+        if parent.get('parent_text'):
+            lines_out.append(f"- context: {parent['parent_text'][:500]}...")
         lines_out.append('')
 
     ep_path.write_text('\n'.join(lines_out), encoding='utf-8')
-    _write_version_log(cfg, ep_path, 'create', 'evidence_pack')
+    
+    run_record = {
+        'query_id': query_id,
+        'q_raw': args.question,
+        'variants': variants,
+        'returned': len(final_results),
+        'timestamp': now_ts(),
+    }
+    write_json(meta_path / 'query_runs' / f'{query_id}.json', run_record)
+    
     print(f'Evidence Pack 已生成：{ep_path}')
 
 
@@ -466,25 +479,57 @@ def cmd_audit(args):
     cfg = load_config(Path('config.yaml'))
     draft = Path(args.draft_path)
     text = draft.read_text(encoding='utf-8')
-    claims = _extract_claims(text)
+    
+    # --- Feature: Clean Copy & Word Count ---
+    import re
+    # 移除 {#doc_uid} 格式的锚点
+    clean_text = re.sub(r"{#[\w\-:.]+}", "", text)
+    # 简单估算单词数 (按空格切分)
+    word_count = len(clean_text.split())
+    
+    # 生成 clean copy 文件
+    clean_path = draft.with_name(f"{draft.stem}_clean{draft.suffix}")
+    clean_path.write_text(clean_text, encoding='utf-8')
+    logger.info(f"Generated Clean Copy: {clean_path} (Net Words: {word_count})")
+    # ----------------------------------------
+
+    from .judge import RagJudge
+    logger.info("正在调用 Gemini 执行语义审计 (法官模式)...")
+    judge = RagJudge()
+    claims = judge.audit_claims(text)
+    
     outputs = outputs_dir(cfg) / 'audits'
     ensure_dir(outputs)
     base = f"{draft.stem}_claims"
     out_path = next_version_path(outputs, base)
-    header = '| claim_id | claim_text | claim_type | linked_evidence | status | suggested_queries |\n|---|---|---|---|---|---|'
-    rows = [header]
+    
+    # 构建符合 PR 15.4.2 规范的表格
+    # 在头部增加字数统计信息
+    lines = [
+        f"# Audit Report: {draft.name}",
+        f"- **Net Word Count**: {word_count} words (excluding citation anchors)",
+        f"- **Clean Copy**: `{clean_path.name}`",
+        "",
+        '| claim_id | claim_text | claim_type | status | suggested_action |',
+        '|---|---|---|---|---|'
+    ]
     for i, c in enumerate(claims, 1):
-        rows.append(f"| c{i:03d} | {c['text']} | {c['type']} |  | NEED |  |")
-    rows.append("")
-    rows.append("## Sources used")
+        lines.append(f"| c{i:03d} | {c['claim_text']} | {c['claim_type']} | NEED | {c['reason']} |")
+    
+    lines.append("\n## 自然语言待办清单 (PR 15.4.2)")
+    for i, c in enumerate(claims, 1):
+        lines.append(f"{i}. **{c['claim_type']}**: {c['claim_text']} \n   - 建议：{c['reason']}")
+    
+    lines.append("\n## Sources used")
     srcs = _sources_used_from_chunks()
     if srcs:
-        rows.extend([f"- {s}" for s in srcs])
+        lines.extend([f"- {s}" for s in srcs])
     else:
-        rows.append("None")
-    out_path.write_text('\n'.join(rows), encoding='utf-8')
-    _write_version_log(cfg, out_path, 'create', 'audit_claims')
-    print(f'audit 输出：{out_path}')
+        lines.append("None")
+        
+    out_path.write_text('\n'.join(lines), encoding='utf-8')
+    _write_version_log(cfg, out_path, 'create', 'audit_claims_api')
+    print(f'API 审计完成，报告已生成：{out_path}')
 
 
 def _extract_doc_ids(text: str) -> List[tuple]:
@@ -544,43 +589,49 @@ def cmd_verify_citations(args):
     cfg = load_config(Path('config.yaml'))
     draft = Path(args.draft_path)
     text = draft.read_text(encoding='utf-8')
-    doc_ids = _extract_doc_ids(text)
-    chunks_file = Path(cfg['paths']['chunks']) / 'chunks.jsonl'
-    if not chunks_file.exists():
-        _fail('缺少 chunks/chunks.jsonl，无法核查引用。', ErrorCode.VERIFY_NO_DOC)
-    chunk_records = _load_chunks(chunks_file)
-    verify_cfg = cfg.get('verify_citations', {'k': 10, 'threshold_T': 0.55})
-    k = int(verify_cfg.get('k', 10))
-    threshold = float(verify_cfg.get('threshold_T', 0.55))
+    
+    doc_ids = _extract_doc_ids(text) # 提取 {#doc_uid}
+    if not doc_ids:
+        print(human_warn("未在草稿中发现任何引用标记 {#doc_uid}。"))
+        return
+
+    from .vector_store import VectorStore
+    from .judge import RagJudge
+    
+    db_dir = project_root() / cfg['paths']['index'] / "lancedb"
+    vs = VectorStore(db_dir)
+    judge = RagJudge()
+
+    logger.info(f"正在核查 {len(doc_ids)} 处引用的支撑度 (Query Expansion + Multi-Search)...")
 
     outputs = outputs_dir(cfg) / 'audits'
     ensure_dir(outputs)
     base = f"{draft.stem}_citations"
     out_path = next_version_path(outputs, base)
-    header = '| sentence_id | sentence_text | cited_doc_uids | support_score | status | suggested_query |\n|---|---|---|---|---|---|'
-    rows = [f"verify_citations_k={k}, threshold_T={threshold}", header]
+    
+    header = '| sentence_id | sentence_text | cited_doc | score | status | critique |\n|---|---|---|---|---|---|'
+    rows = [header]
+    
     for i, (sent, docid) in enumerate(doc_ids, 1):
-        related = [c for c in chunk_records if c.get('doc_uid') == docid][:k]
-        status = 'MISSING'
-        score = 0.0
-        if related:
-            # 可控分值：至少存在则 0.4（WEAK），若命中>1 则 0.8（OK）
-            score = 0.8 if len(related) > 1 else 0.4
-            status = 'OK' if score >= threshold else 'WEAK'
-            if not _doc_citable(chunks_file, docid):
-                _print_filters_and_summary(chunk_records)
-                _fail(f'{docid} 非 citable，校验失败。', ErrorCode.QUERY_CITABLE_VIOLATION)
-        rows.append(f"| s{i:03d} | {sent[:200]} | {docid} | {score:.2f} | {status} |  |")
-    rows.append("")
-    rows.append("## Sources used")
-    srcs = _sources_used_from_chunks()
-    if srcs:
-        rows.extend([f"- {s}" for s in srcs])
-    else:
-        rows.append("None")
+        # 使用多路召回在目标文档中搜索证据
+        # 限制范围：只在该 doc_uid 内搜索
+        candidates, _ = _retrieve_candidates(sent, vs, judge, cfg, extra_filter=f"doc_uid = '{docid}'")
+        
+        if not candidates:
+            # 如果连关键词都搜不到，那肯定是 MISSING
+            rows.append(f"| s{i:03d} | {sent[:100]}... | {docid} | 0.00 | MISSING | 未在文档中检索到相关片段 |")
+            continue
+            
+        evidence_texts = [c['text'] for c in candidates]
+        
+        # 调用 Gemini 进行语义比对
+        result = judge.verify_support(sent, evidence_texts)
+        
+        rows.append(f"| s{i:03d} | {sent[:100]}... | {docid} | {result['support_score']:.2f} | {result['status']} | {result['critique']} |")
+
     out_path.write_text('\n'.join(rows), encoding='utf-8')
-    _write_version_log(cfg, out_path, 'create', 'verify_citations')
-    print(f'verify-citations 输出：{out_path}')
+    _write_version_log(cfg, out_path, 'create', 'verify_citations_api')
+    print(f'引文核查完成，报告已生成：{out_path}')
 
 
 @handle_exception

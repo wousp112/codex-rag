@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import yaml
 import json
 from pathlib import Path
 from typing import Any, Dict
@@ -45,7 +46,7 @@ def load_config(path: Path) -> Dict[str, Any]:
         raise RagError(f"config.yaml not found at {path}", ErrorCode.CONFIG_MISSING)
     try:
         text = path.read_text(encoding="utf-8")
-        data = json.loads(text)
+        data = yaml.safe_load(text)
     except Exception as exc:  # pragma: no cover - defensive
         raise RagError(f"Failed to parse config.yaml: {exc}", ErrorCode.CONFIG_INVALID) from exc
     return data

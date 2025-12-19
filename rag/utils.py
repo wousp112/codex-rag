@@ -67,3 +67,26 @@ def parse_draft_version(draft_path: Path) -> str:
 
 def human_warn(msg: str) -> str:
     return f"WARNING: {msg}"
+
+
+def get_google_project_id() -> Optional[str]:
+    import os
+    # 1. 优先读取显式环境变量
+    pid = os.environ.get("GCP_PROJECT_ID")
+    if pid:
+        return pid
+    
+    # 2. 尝试从 GOOGLE_APPLICATION_CREDENTIALS 文件中读取
+    cred_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+    if cred_path:
+        path = Path(cred_path)
+        if path.exists() and path.is_file():
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+                found = data.get("project_id")
+                if found:
+                    return found
+            except Exception:
+                pass # 解析失败则静默跳过
+    
+    return None
