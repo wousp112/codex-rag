@@ -175,6 +175,8 @@ def cmd_parse(args):
 
     api_key = os.environ.get('MINERU_API_KEY')
     if not api_key:
+        api_key = cfg.get('api_keys', {}).get('mineru')
+    if not api_key:
         report = meta_path / 'parse_quality_report.md'
         report.write_text(
             '## Parse Quality Report\n- 状态：stub（缺少 MINERU_API_KEY）\n- 提示：设置环境变量 MINERU_API_KEY 后重跑；当前未执行远程解析。\n',

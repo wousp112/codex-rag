@@ -14,6 +14,14 @@ rag init
 - 可引用文献：放到 `raw/evidence/`
 - 指令/风格文件：放到 `raw/instruction/...`（会生成 instruction/style brief，citable=false）
 
+## 配置 API Key（可写进 config.yaml）
+- MinerU 解析：在 `config.yaml` 添加
+  ```json
+  "api_keys": { "mineru": "你的MINERU_API_KEY" }
+  ```
+  或在终端设置环境变量 `MINERU_API_KEY`。parse 会优先读环境，缺失时读 config。
+- 其他外部服务同理，可扩展 `api_keys` 字段；本仓库默认 embedding/rerank 仍为 stub。
+
 ## 黄金路径命令
 ```bash
 rag parse
