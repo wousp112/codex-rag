@@ -36,5 +36,8 @@
   "counterevidence_mode": "off",
   "locator": {
     "header_footer_repeat_threshold": 0.6
+  },
+  "api_keys": {
+    "mineru": "REPLACE_WITH_MINERU_API_KEY"
   }
 }
