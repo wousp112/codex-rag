@@ -1,3 +1,0 @@
-| sentence_id | sentence_text | cited_doc | score | status | critique |
-|---|---|---|---|---|---|
-| s001 | A catastrophe on the scale of the Indian Ocean tsunami rightly draws attention to natural hazards, y... | 8ff5f1ae50bc8c9ba767d2d182754836883f1a311bd975fd60177ee50a58d1ed | 0.20 | MISSING | 原文证据确认了印度洋海啸灾难确实引起了对弱势群体易受影响的关注（'A catastrophe on the scale of the Indian Ocean tsunami rightly focuses attention on the susceptibility of poor and vulnerable populatio'），但并未提及存在'穷困和弱势群体与其他任何人一样不易受影响'的普遍假设。学生断言的后半部分在原文中没有体现。 |

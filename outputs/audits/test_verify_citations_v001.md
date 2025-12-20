@@ -1,3 +1,0 @@
-| sentence_id | sentence_text | cited_doc | score | status | critique |
-|---|---|---|---|---|---|
-| s001 | A catastrophe on the scale of the Indian Ocean tsunami rightly draws attention to natural hazards, y... | 8ff5f1ae50bc8c9ba767d2d182754836883f1a311bd975fd60177ee50a58d1ed | 0.00 | MISSING | API 解析失败: 404 Publisher Model `projects/gen-lang-client-0976941014/locations/us-central1/publishers/google/models/gemini-1.5-flash` was not found or your project does not have access to it. Please ensure you are using a valid model version. For more information, see: https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions |
