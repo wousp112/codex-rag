@@ -17,6 +17,9 @@ class MinerUParser:
         self.api_key = api_key
         self.base_url = base_url
         self.headers = {"Authorization": f"Bearer {api_key}"}
+        # Bypass environment proxies (some setups point to localhost:9 and break MinerU)
+        self.session = requests.Session()
+        self.session.trust_env = False
 
     def _get_file_hash(self, file_path: Path) -> str:
         hasher = hashlib.sha256()
@@ -74,7 +77,7 @@ class MinerUParser:
 
         # 1. 申请上传链接并获取 Batch ID (POST /file-urls/batch)
         logger.info("正在申请上传链接...")
-        resp_urls = requests.post(
+        resp_urls = self.session.post(
             f"{self.base_url}/file-urls/batch", 
             json={"files": files_payload, "model_version": model_version}, 
             headers=self.headers
@@ -115,14 +118,14 @@ class MinerUParser:
             
             if file_path:
                 with open(file_path, "rb") as f:
-                    put_resp = requests.put(upload_url, data=f)
+                    put_resp = self.session.put(upload_url, data=f)
                     if put_resp.status_code != 200:
                         logger.error(f"文件 {file_path.name} 上传失败: {put_resp.text}")
 
         # 3. 轮询状态 (直接使用 step 1 的 batch_id)
         logger.info("等待解析完成...")
         while True:
-            status_resp = requests.get(f"{self.base_url}/extract-results/batch/{batch_id}", headers=self.headers)
+            status_resp = self.session.get(f"{self.base_url}/extract-results/batch/{batch_id}", headers=self.headers)
             if status_resp.status_code != 200:
                 logger.warning(f"轮询状态失败: {status_resp.text}，稍后重试...")
                 time.sleep(10)
@@ -164,7 +167,7 @@ class MinerUParser:
         ensure_dir(target_dir)
         zip_path = target_dir / "result.zip"
         try:
-            resp = requests.get(url)
+            resp = self.session.get(url)
             with open(zip_path, "wb") as f:
                 f.write(resp.content)
             
@@ -175,4 +178,7 @@ class MinerUParser:
             logger.error(f"下载/解压失败 {url}: {e}")
         finally:
             if zip_path.exists():
-                os.remove(zip_path)
+                try:
+                    os.remove(zip_path)
+                except PermissionError:
+                    logger.warning(f"无法删除临时文件（可能被占用）：{zip_path}")

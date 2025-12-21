@@ -68,6 +68,18 @@
     > **⚠️ 特别注意 (GCP 配置)**：
     > `.env` 中的 `GOOGLE_APPLICATION_CREDENTIALS` 必须填入 **JSON 密钥文件的路径** (例如 `./gcp_credentials.json`)，而不是一串字符！请确保该文件已下载并放在项目根目录下。
 
+    **???????/???????**?
+    - ????????????????`.env` ????????
+    - ??? `Start-Process` / ??? / ????????????????????????????? **???? GCP** ????
+    - ?????PowerShell??
+      ```powershell
+      Set-Location "D:\UCL HUD Curriculum\Essay Assistant DEVP0047 Health, Social Justice and the City 2526"
+      $env:GOOGLE_APPLICATION_CREDENTIALS="D:\UCL HUD Curriculum\Essay Assistant DEVP0047 Health, Social Justice and the City 2526\gcp_credentials.json"
+      $env:GCP_LOCATION="us-central1"
+      $env:PYTHONUNBUFFERED=1
+      python -u -m rag embed > meta\embed_run.log 2> meta\embed_run.err
+      ```
+
 ---
 
 ## 📚 3. 多任务/多论文管理指南
@@ -118,3 +130,23 @@
 - `outputs/`: 所有的产出（草稿、证据包、审计报告）都在这里。
 - `meta/`: 系统日志和配置，不用管。
 - `config.yaml`: 项目配置，AI 会帮你看着办。
+---
+
+## Runtime logging & debugging (embed)
+
+- Logs are written to `meta/embed_run.log` by default.
+- You can override the log file with `RAG_LOG_FILE`.
+- A live status file is written to `meta/embed_status.json` (override with `RAG_STATUS_FILE`).
+- Heartbeat emits every 10s or every 100 items (whichever comes first).
+- If no progress is detected for `RAG_STALL_TIMEOUT` seconds (default 600), embed aborts with a clear error.
+- If throughput collapses vs baseline for `RAG_STALL_TIMEOUT` seconds, embed aborts (defaults: `RAG_DEGRADE_RATIO=0.05`).
+- `rag embed` / `rag embed-one` will auto-open a PowerShell window to tail the log in UTF-8 (no mojibake).
+
+Example:
+
+```powershell
+$env:RAG_LOG_FILE="D:\UCL HUD Curriculum\Essay Assistant DEVP0047 Health, Social Justice and the City 2526\meta\embed_run.log"
+$env:RAG_STALL_TIMEOUT=600
+$env:RAG_DEGRADE_RATIO=0.05
+python -u -m rag embed
+```

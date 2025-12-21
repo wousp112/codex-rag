@@ -13,7 +13,7 @@
   "embedding": {
     "provider": "vertex",
     "model": "gemini-embedding-001",
-    "output_dim": 1536,
+    "output_dim": 3072,
     "task_type_document": "RETRIEVAL_DOCUMENT",
     "task_type_query": "RETRIEVAL_QUERY",
     "concurrency": 4,
